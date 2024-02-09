@@ -1,0 +1,22 @@
+[
+    {
+        "text" : "Діалогове вікно askcolor() МОЖЕ повернути:",
+        "answers" : ["(None, None)", "(False, False)", "((R,G,B),колір)", "(контур, заливка)"],
+        "answer" : "(None, None),((R,G,B),колір)"
+    },
+    {
+        "text" : "Виберіть правильні описи для кольору: ",
+        "answers" : ["'червоний'", "'red'", "#AABBCC", "#FF00HH", "#AAGGDD"],
+        "answer" : "'red',#AABBCC"
+    },
+    {
+        "text" : "Оберіть способи імпорту бібліотеки matplotlib:",
+        "answers" : ["import matplotlib.pyplot", "import pyplotlib", "import matplotlib.pylab", "import matplotlib.animations", "matplotlib"],
+        "answer" : "import matplotlib.pyplot,import matplotlib.pylab"
+    },
+    {
+        "text" : "Якими способами можна виконати функцію на всі елементи списку:",
+        "answers" : ["[f(x) for x in lis]", "list(map(lis, lambda x: f(x)))", "filter(lis, f)", "ordered(lis, f)", "Ніяк"],
+        "answer" : "[f(x) for x in lis],list(map(lis, lambda x: f(x)))"
+    }
+]

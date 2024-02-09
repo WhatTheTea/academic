@@ -1,0 +1,10 @@
+Wed May  3 09:31:25 2023 | alex | Q: Оберіть модуль для графічного інтерфейса is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: Оберіть модуль для побудови графіків is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: Яка функція призначена для виводу даних в консоль? is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: Class.a() - що це? is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: Class A = Class() - що це? is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: class Class: - що це? is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: a = 'hello world' - що це? is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: str, int - це  is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: list, dict - це is correct: True
+Wed May  3 09:31:25 2023 | alex | Q: Python названий в честь: is correct: True

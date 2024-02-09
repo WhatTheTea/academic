@@ -1,0 +1,1 @@
+[print(x) for x in range(17, 45+1)]

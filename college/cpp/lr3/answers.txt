@@ -1,0 +1,6 @@
+// not initialized
+int a; // a has undefined value
+char b; // b is initialized to '\0' 
+// initialized
+int a = 5; // a starts with value 5
+char b = 'x'; // b starts with value 'x'

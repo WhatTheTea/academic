@@ -1,0 +1,52 @@
+[
+    {
+        "text" : "Оберіть модуль для графічного інтерфейса",
+        "answers" : ["matplotlib", "pickle", "turtle", "tkinter"],
+        "answer" : "tkinter"
+    },
+    {
+        "text" : "Оберіть модуль для побудови графіків",
+        "answers" : ["matplotlib", "pickle", "turtle", "tkinter"],
+        "answer" : "matplotlib"
+    },
+    {
+        "text" : "Яка функція призначена для виводу даних в консоль?",
+        "answers" : ["print()", "write()", "Console.WriteLine()", "cout << 'hello'"],
+        "answer" : "print()"
+    },
+    {
+        "text" : "Class.a() - що це?",
+        "answers" : ["Клас", "Метод", "Фукнція", "Змінна"],
+        "answer" : "Метод"
+    },
+    {
+        "text" : "Class A = Class() - що це?",
+        "answers" : ["Клас", "Об'єкт", "Фукнція", "Змінна"],
+        "answer" : "Об'єкт"
+    },
+    {
+        "text" : "class Class: - що це?",
+        "answers" : ["Клас", "Метод", "Фукнція", "Змінна"],
+        "answer" : "Клас"
+    },
+    {
+        "text" : "a = 'hello world' - що це?",
+        "answers" : ["Клас", "Метод", "Фукнція", "Змінна"],
+        "answer" : "Змінна"
+    },
+    {
+        "text" : "str, int - це ",
+        "answers" : ["змінна значення", "змінна посилання"],
+        "answer" : "змінна значення"
+    },
+    {
+        "text" : "list, dict - це",
+        "answers" : ["змінна значення", "змінна посилання"],
+        "answer" : "змінна посилання"
+    },
+    {
+        "text" : "Python названий в честь:",
+        "answers" : ["Монті Пайтона", "Змії", "Пітона", "Однокласника"],
+        "answer" : "Монті Пайтона"
+    }
+]

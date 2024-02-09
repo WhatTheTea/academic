@@ -1,0 +1,20 @@
+Fri May  5 10:43:06 2023 | aaa | Q: Діалогове вікно askcolor() МОЖЕ повернути: is correct: True
+Fri May  5 10:43:06 2023 | aaa | Q: Виберіть правильні описи для кольору:  is correct: True
+Fri May  5 10:43:06 2023 | aaa | Q: Оберіть способи імпорту бібліотеки matplotlib: is correct: True
+Fri May  5 10:43:06 2023 | aaa | Q: Якими способами можна виконати функцію на всі елементи списку: is correct: True
+Fri May  5 11:17:59 2023 | kjhgfds | Q: Діалогове вікно askcolor() МОЖЕ повернути: is correct: True
+Fri May  5 11:17:59 2023 | kjhgfds | Q: Виберіть правильні описи для кольору:  is correct: True
+Fri May  5 11:17:59 2023 | kjhgfds | Q: Оберіть способи імпорту бібліотеки matplotlib: is correct: True
+Fri May  5 11:17:59 2023 | kjhgfds | Q: Якими способами можна виконати функцію на всі елементи списку: is correct: False
+Fri May  5 11:27:19 2023 | 123123 | Q: Діалогове вікно askcolor() МОЖЕ повернути: is correct: False
+Fri May  5 11:27:19 2023 | 123123 | Q: Виберіть правильні описи для кольору:  is correct: False
+Fri May  5 11:27:19 2023 | 123123 | Q: Оберіть способи імпорту бібліотеки matplotlib: is correct: False
+Fri May  5 11:27:19 2023 | 123123 | Q: Якими способами можна виконати функцію на всі елементи списку: is correct: False
+Wed May 10 22:12:52 2023 | ewf | Q: Діалогове вікно askcolor() МОЖЕ повернути: is correct: True
+Wed May 10 22:12:52 2023 | ewf | Q: Виберіть правильні описи для кольору:  is correct: False
+Wed May 10 22:12:52 2023 | ewf | Q: Оберіть способи імпорту бібліотеки matplotlib: is correct: False
+Wed May 10 22:12:52 2023 | ewf | Q: Якими способами можна виконати функцію на всі елементи списку: is correct: False
+Tue May 16 10:36:00 2023 | cheb | Q: Діалогове вікно askcolor() МОЖЕ повернути: is correct: True
+Tue May 16 10:36:00 2023 | cheb | Q: Виберіть правильні описи для кольору:  is correct: False
+Tue May 16 10:36:00 2023 | cheb | Q: Оберіть способи імпорту бібліотеки matplotlib: is correct: False
+Tue May 16 10:36:00 2023 | cheb | Q: Якими способами можна виконати функцію на всі елементи списку: is correct: False
