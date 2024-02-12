@@ -1,9 +1,13 @@
+import os
 from Crypto.PublicKey import RSA
 
 class KeyGenerator:
     def __init__(self, keyPath : str) -> None:
         self.keyPath = keyPath
-        
+    
+    def fileExists(self):
+        return os.path.isfile(self.keyPath)
+    
     def createKey(self):
         pwd = input("Введіть пароль для вашого ключа: ")
         self.generateKey(pwd)
