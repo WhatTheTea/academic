@@ -4,6 +4,7 @@ from RSACipher import RSACipher
 class Program:
     _key : Key
     _cipher : RSACipher
+    textFile = "text.txt"
     
     def setKeyGenerator(self, key : Key):
         self._key = key
@@ -13,20 +14,25 @@ class Program:
         self._cipher = rsaCipher
         return self
     
+    def setTextFile(self, path : str):
+        self.textFile = path
+        return self
+    
     def encrypt(self):
-        message = input("Введіть текст: ")
-        self._cipher.loadKey(self._key.publicKeyPath)
-        data = self._cipher.encrypt(message)
-        print("Шифротекст:")
-        print([a for a in data])
+        with open(self.textFile, "wb") as f:
+            message = input("Введіть текст: ")
+            self._cipher.loadKey(self._key.publicKeyPath)
+            data = self._cipher.encrypt(message)
+            f.write(data)
+            print("Зашифровано в " + self.textFile)
         
     def decrypt(self):
-        message = input("Введіть шифротекст: ")
-        message = bytes([int(s) for s in message.strip('[]').split(',')])
-        self._cipher.loadKey(self._key.privateKeyPath)
-        data = self._cipher.decrypt(message)
-        print("Текст:")
-        print(data.decode())
+        with open(self.textFile, "rb") as f:
+            message = f.read()
+            self._cipher.loadKey(self._key.privateKeyPath)
+            data = self._cipher.decrypt(message)
+            print("Текст:")
+            print(data.decode())
         
     def mainloop(self):
         while True:      
