@@ -1,30 +1,23 @@
-from Crypto.Cipher import PKCS1_OAEP
-from Crypto.PublicKey import RSA
-
-from keyGenerator import KeyGenerator
+from Key import Key
 
 class Program:
-    _keyGenerator : KeyGenerator
+    _key : Key
     
-    def setKeyGenerator(self, kg : KeyGenerator):
-        self._keyGenerator = kg
+    def setKeyGenerator(self, key : Key):
+        self._key = key
         return self
     
     def mainloop(self):
         while True:      
-            print(
-                    """МЕНЮ:
+            print("""МЕНЮ:
                     1. Створити ключ""" +
                     ("""
                     2. Зашифрувати повідомлення
                     3. Розшифрувати повідомлення"""
-                    if self._keyGenerator.fileExists() else "")
-                    
-                    
-                )
+                    if self._key.exists() else ""))
             match(input()):
                 case "1":
-                    self._keyGenerator.createKey()
+                    self._key.createFromTerminal()
                 case "2":
                     pass
                 case "3":
@@ -34,5 +27,5 @@ class Program:
                     exit()
 
 if __name__ == '__main__':
-    program = Program().setKeyGenerator(KeyGenerator("key.pem"))
+    program = Program().setKeyGenerator(Key("key.pem"))
     program.mainloop()
