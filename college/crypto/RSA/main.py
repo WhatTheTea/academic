@@ -17,7 +17,7 @@ class Program:
                     if self._key.exists() else ""))
             match(input("Вибір: ")):
                 case "1":
-                    self._key.createFromTerminal()
+                    self._key.generate()
                 case "2":
                     pass
                 case "3":
@@ -27,5 +27,5 @@ class Program:
                     exit()
 
 if __name__ == '__main__':
-    program = Program().setKeyGenerator(Key("key.pem"))
+    program = Program().setKeyGenerator(Key())
     program.mainloop()
