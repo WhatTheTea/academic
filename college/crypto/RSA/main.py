@@ -15,7 +15,7 @@ class Program:
                     2. Зашифрувати повідомлення
                     3. Розшифрувати повідомлення"""
                     if self._key.exists() else ""))
-            match(input()):
+            match(input("Вибір: ")):
                 case "1":
                     self._key.createFromTerminal()
                 case "2":
