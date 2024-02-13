@@ -1,66 +1,70 @@
-﻿// LR13.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+﻿#include <algorithm>
+#include <functional>
 #include <iostream>
+#include <vector>
 #define ROWS 4
 #define COLS 5
 
-using std::cout, std::cin, std::string;
+using std::cout, std::cin, std::string, std::vector;
 
-static void cols_ascending()
-{
-
-}
-static void rows_descending()
-{
-
-}
-template <size_t rows, size_t cols>
-static void populate_matrix(int(&arr)[rows][cols])
-{
-	cout << "Введіть матрицю " << rows << " x " << cols << '\n';
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < cols; j++)
-		{
-			cin >> arr[i][j];
-		}
-	}
-}
-template <size_t rows, size_t cols>
-static void print_matrix(const int(&arr)[rows][cols])
-{
-	for (int i = 0; i < rows; i++)
-	{
-		for (int j = 0; j < cols; j++)
-		{
-			cout << arr[i][j] << '\t';
-		}
-		cout << '\n';
-	}
+static void sort_matrix(vector<vector<int>> &matrix) {
+  for (auto &&row : matrix) {
+    std::sort(row.begin(), row.end(), std::greater<int>());
+  }
 }
 
-int main()
-{
-	int p[ROWS][COLS]{};
-	char choice = 0;
-	while (choice != 'E')
-	{
-		cout << "Оберіть сортування: 1. Стовпці за зростанням 2. Рядки за спаданням E. Вихід\n";
-		cin >> choice;
-		switch (choice)
-		{
-		case '1':
-			populate_matrix<ROWS, COLS>(p);
-			print_matrix<ROWS, COLS>(p);
-			break;
-		case '2':
-			break;
-		case 'E':
-			break;
-		default:
-			cout << "err";
-			break;
-		}
-	}
+static void print_matrix(const vector<vector<int>> &matrix) {
+  for (auto &&row : matrix) {
+    for (auto &&col : row) {
+      cout << col << ' ';
+    }
+    cout << '\n';
+  }
+}
+
+static auto transpose(const vector<vector<int>> &matrix) {
+  vector<vector<int>> result(matrix[0].size(), vector<int>());
+  for (int r = 0; r < matrix.size(); r++) {
+	// vector<int> buf;
+    for (int c = 0; c < matrix[r].size(); c++) {
+      result[c].push_back(matrix.at(r).at(c));
+    }
+	// result.push_back(buf);
+  }
+  return result;
+}
+
+int main() {
+  vector<vector<int>> p{{1, 2, 3, 4, 5},
+                        {10, 9, 8, 7, 6},
+                        {5, 4, 3, 2, 1},
+                        {6, 7, 8, 9, 10}};
+  char choice = 0;
+  while (choice != '0') {
+    cout << "Меню: 1. Стовпці 2. Рядки 0. Вихід\n";
+    cin >> choice;
+    switch (choice) {
+    case '1': {
+      print_matrix(p);
+      auto mat = transpose(p);
+      cout << "\n";
+      sort_matrix(mat);
+      print_matrix(transpose(mat));
+      break;
+    }
+    case '2': {
+      auto mat(p);
+      print_matrix(mat);
+      cout << "\n";
+      sort_matrix(mat);
+      print_matrix(mat);
+      break;
+    }
+    case '0':
+      break;
+    default:
+      cout << "err";
+      break;
+    }
+  }
 }
