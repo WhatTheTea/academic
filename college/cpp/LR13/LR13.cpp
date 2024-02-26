@@ -25,17 +25,9 @@ static void print_matrix(const vector<vector<int>> &matrix) {
 static auto transpose(const vector<vector<int>> &matrix) {
   vector<vector<int>> result(matrix[0].size(), vector<int>());
   for (int r = 0; r < matrix.size(); r++) {
-<<<<<<< HEAD
-	// vector<int> buf;
     for (int c = 0; c < matrix[r].size(); c++) {
       result[c].push_back(matrix.at(r).at(c));
     }
-	// result.push_back(buf);
-=======
-    for (int c = 0; c < matrix[r].size(); c++) {
-      result[c].push_back(matrix.at(r).at(c));
-    }
->>>>>>> 6b31035 (Add college/cpp/lr13)
   }
   return result;
 }
