@@ -6,9 +6,9 @@
 #include <vector>
 
 using std::cout, std::cin, std::string, std::vector;
-
-static void map(vector<vector<double>> &matrix,
-                std::function<void(double *, int, int)> fun) {
+template<typename T>
+static void map(vector<vector<T>> &matrix,
+                std::function<void(T *, int, int)> fun) {
   for (int i = 0; i < matrix.size(); i++) {
     for (int j = 0; j < matrix.size(); j++) {
       fun(&matrix[i][j], i, j);
@@ -23,9 +23,9 @@ int main() {
     cin >> choice;
     if (choice == 'e') break;
     vector<vector<double>> p(choice - '0', vector<double>(choice - '0', 0.0));
-    map(p, [](double *v, int i, int j) { *v = sin(i + j); });
+    map<double>(p, [](double *v, int i, int j) { *v = sin(i + j); });
     int pos = 0, neg = 0;
-    map(p, [&pos, &neg](double *v, int i, int j) { *v > 0 ? pos++ : neg++;});
+    map<double>(p, [&pos, &neg](double *v, int i, int j) { *v > 0 ? pos++ : neg++;});
     cout <<"Додатніх: "<< pos << " Від'ємних: " << neg << '\n';
   }
 }
