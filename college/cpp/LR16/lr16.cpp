@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+using std::cout, std::cin, std::string;
+
 struct Range 
 { 
     int start; 
@@ -70,6 +72,7 @@ struct BookStore
         books = new_books;
     }
 };
+
 enum Menu
 {
     ByIdRange = 1,
@@ -78,68 +81,99 @@ enum Menu
     AddBook = 4,
     RemoveBook = 5
 };
+struct BookStoreConsoleView
+{
+    BookStore bookstore;
 
-using std::cout, std::cin, std::string;
+    BookStoreConsoleView()
+    {
+        bookstore = BookStore();
+    }
 
+    void ById()
+    {
+        cout << "Введіть діапазон ідентифікаційних номерів: \nВід До: ";
+        Range range;
+        cin >> range.start >> range.end;
+        auto book = bookstore.SearchByIdRange(range);
+        cout << book.toString() << '\n';
+    }
+
+    void ByCopies()
+    {
+        cout << "Введіть діапазон кількості примірників: \nВід До: ";
+        Range range;
+        cin >> range.start >> range.end;
+        auto book = bookstore.SearchByCopiesRange(range);
+        cout << book.toString() << '\n';
+    }
+
+    void ByName()
+    {
+        cout << "Введіть ім'я книги:";
+        string name;
+        cin >> name;
+        auto book = bookstore.SearchByName(name);
+        cout << book.toString() << '\n';
+    }
+
+    void AddBook()
+    {
+        auto new_book = null<Book>;
+        cout << "Введіть назву книги: ";
+        cin >> new_book.title;
+        cout << "Введіть номер книги: ";
+        cin >> new_book.id;
+        cout << "Введіть кількість примірників : ";
+        cin >> new_book.copies;
+        bookstore.Add(new_book);
+        cout << "Книгу додано!\n";
+    }
+
+    void RemoveBook()
+    {
+        cout << "Введіть номер книги:";
+        int id = 0;
+        cin >> id;
+        bookstore.Remove(id);
+        cout << "Книгу видалено!\n";
+    }
+
+    void mainloop()
+    {
+        string input;
+        int choice;
+        while (true) {
+            cout << "Меню:\n\t1. Шукати за номером \n\t2. Шукати за кількістю примірників"
+            << "\n\t3. Пошук за іменем\n\t4. Додати книжку\n\t5. Видалити книжку\n";
+            cin >> input;
+            if (input == "/exit") break;
+
+            switch (std::stoi(input)) {
+                case Menu::ByIdRange: 
+                    ById();
+                    break;
+                case Menu::ByCopiesRange: 
+                    ByCopies();
+                    break;
+                case Menu::ByName: 
+                    ByName();
+                    break;
+                case Menu::AddBook: 
+                    AddBook();
+                    break;
+                case Menu::RemoveBook: 
+                    RemoveBook();
+                    break;
+            }
+        }
+    }
+};
 
 
 int main(int argc, const char** argv)
 {
-    string input;
-    int choice;
-    auto bookstore = BookStore{};
-    while (true) {
-        cout << "Меню:\n\t1. Шукати за номером \n\t2. Шукати за кількістю примірників"
-        << "\n\t3. Пошук за іменем\n\t4. Додати книжку\n\t5. Видалити книжку\n";
-        cin >> input;
-        if (input == "/exit") break;
-        switch (std::stoi(input)) {
-            case ByIdRange: {
-                cout << "Введіть діапазон ідентифікаційних номерів: \nВід До: ";
-                Range range;
-                cin >> range.start >> range.end;
-                auto book = bookstore.SearchByIdRange(range);
-                cout << book.toString() << '\n';
-            break;
-            }
-            case ByCopiesRange: {
-                cout << "Введіть діапазон кількості примірників: \nВід До: ";
-                Range range;
-                cin >> range.start >> range.end;
-                auto book = bookstore.SearchByCopiesRange(range);
-                cout << book.toString() << '\n';
-            break;
-            }
-            case ByName: {
-                cout << "Введіть ім'я книги:";
-                string name;
-                cin >> name;
-                auto book = bookstore.SearchByName(name);
-                cout << book.toString() << '\n';
-            break;
-            }
-            case AddBook: {
-                auto new_book = null<Book>;
-                cout << "Введіть назву книги: ";
-                cin >> new_book.title;
-                cout << "Введіть номер книги: ";
-                cin >> new_book.id;
-                cout << "Введіть кількість примірників : ";
-                cin >> new_book.copies;
-                bookstore.Add(new_book);
-                cout << "Книгу додано!\n";
-            break;
-            }
-            case RemoveBook: {
-                cout << "Введіть номер книги:";
-                int id = 0;
-                cin >> id;
-                bookstore.Remove(id);
-                cout << "Книгу видалено!\n";
-            break;
-            }
-        }
-    }
-
+    auto bookstoreView = BookStoreConsoleView();
+    bookstoreView.mainloop();
     return 0;
 }
