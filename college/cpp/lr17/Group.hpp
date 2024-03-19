@@ -5,8 +5,8 @@
 #include <array>
 #include <functional>
 
-#include "Student.h"
-#include "Null.h"
+#include "Student.hpp"
+#include "Null.hpp"
 
 struct Group {
   std::vector<Student> students;
