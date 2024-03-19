@@ -1,7 +1,7 @@
 #ifndef MAINVIEW_H
 #define MAINVIEW_H
 
-#include "Group.hpp"
+#include "Group.h"
 
 enum Menu { 
 	SameMean = 1, 
