@@ -2,7 +2,7 @@
 #include <string>
 #include <sstream>
 
-std::string Student::getInitials() { return last_name + name[0] + patronymic[0]; }
+std::string Student::getInitials() { return last_name + " " + name[0] + patronymic[0]; }
 
 std::string Student::toString() {
 std::stringstream s;

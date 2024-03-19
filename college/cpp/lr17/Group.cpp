@@ -13,7 +13,7 @@ std::array<Student, 2> Group::SearchSameSecondMean()
     auto second = null<Student>;
     auto student = Search([&second, this](Student s)
     {
-      second = Search([s](Student sec){return s.secondMean == sec.secondMean;});
+      second = Search([&s](Student sec){return s.secondMean == sec.secondMean && s.toString() != sec.toString();});
       return s.secondMean == second.secondMean;
     });
     auto students = std::array<Student, 2>{student, second};
