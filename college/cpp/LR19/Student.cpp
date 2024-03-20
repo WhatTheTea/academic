@@ -20,7 +20,7 @@ std::string Student::toString() {
 
 double Student::getMean()
 {
-    double sum = std::accumulate(this->grades.begin(), this->grades.end(), 0);
+    double sum = std::accumulate(this->grades.begin(), this->grades.end(), 0.0f);
     double count = this->grades.size();
     return sum / count;
 }

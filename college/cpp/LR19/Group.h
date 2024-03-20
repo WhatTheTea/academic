@@ -13,6 +13,8 @@ struct Group {
 
   void Add(Student student);
   void Remove(int id);
+  std::vector<Student> getStudentsMeanAsc();
+  std::vector<Student> getStudentsMeanDesc();
 };
 
 #endif // !WTT_GROUP_H
