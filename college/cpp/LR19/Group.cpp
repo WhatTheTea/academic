@@ -14,8 +14,8 @@ void Group::Remove(int id) { students.erase(students.begin() + id); }
 std::vector<Student> Group::getStudentsMeanAsc()
 {
     auto result = this->students;
-    std::sort(result.begin(), result.end(), [](Student x, Student y){
-        return x.getMean() > y.getMean();
+    std::sort(result.begin(), result.end(), [](Student &x, Student &y){
+        return x.getMean() < y.getMean();
     });
     return result;
 }
@@ -23,8 +23,8 @@ std::vector<Student> Group::getStudentsMeanAsc()
 std::vector<Student> Group::getStudentsMeanDesc()
 {
     auto result = this->students;
-    std::sort(result.begin(), result.end(), [](Student x, Student y){
-        return x.getMean() < y.getMean();
+    std::sort(result.begin(), result.end(), [](Student &x, Student &y){
+        return x.getMean() > y.getMean();
     });
     return result;
 }

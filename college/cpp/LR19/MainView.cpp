@@ -10,7 +10,7 @@ void studentConsoleView::AddStudent() {
   auto new_student = null<Student>;
   cout << "Введіть ПІБ: ";
   cin >> new_student.last_name >> new_student.name >> new_student.patronymic;
-  cout << "Введіть оцінки з трьох предметів";
+  cout << "Введіть оцінки з трьох предметів: ";
   for (auto &grade : new_student.grades) {
       cin >> grade;
   }
@@ -44,7 +44,7 @@ void studentConsoleView::mainloop() {
   string input;
   int choice;
   while (true) {
-    cout << "Меню:\n\t1.Однакові середні бали \n\t2. Всі"
+    cout << "Меню:\n\t1. Спадаючі середні бали \n\t2. Зростаючі середні бали"
          << "\n\t3. Додати\n\t4. Видалити\n";
     cin >> input;
     if (input == "/exit")
