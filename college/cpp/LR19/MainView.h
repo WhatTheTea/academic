@@ -3,9 +3,9 @@
 
 #include "Group.h"
 
-enum Menu { 
-	SameMean = 1, 
-	PrintEveryone = 2, 
+enum Menu {
+    PrintAllMeanDesc = 1,
+    PrintAllMeanAsc = 2,
 	AddStudent = 3, 
 	RemoveStudent = 4 };
 
@@ -15,8 +15,8 @@ struct studentConsoleView {
   studentConsoleView() { group = Group(); }
   void AddStudent();
   void RemoveStudent();
-  void PrintAll();
-  void SearchSameSecondMean();
+  void PrintAllMeanAscending();
+  void PrintAllMeanDescending();
   void mainloop();
 };
 #endif // !MAINVIEW_H

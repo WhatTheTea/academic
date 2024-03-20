@@ -26,11 +26,18 @@ void studentConsoleView::RemoveStudent() {
   cout << "Студента видалено!\n";
 }
 
-void studentConsoleView::PrintAll() {
-  cout << "Всі студенти: \n";
-  for (auto &s : group.students) {
+void studentConsoleView::PrintAllMeanAscending() {
+  cout << "Всі студенти за зростаючим середнім балом: \n";
+  for (auto &s : this->group.getStudentsMeanAsc()) {
     cout << s.toString() << '\n';
   }
+}
+
+void studentConsoleView::PrintAllMeanDescending() {
+    cout << "Всі студенти за спадаючим середнім балом: \n";
+    for (auto &s : this->group.getStudentsMeanDesc()) {
+        cout << s.toString() << '\n';
+    }
 }
 
 void studentConsoleView::mainloop() {
@@ -45,14 +52,17 @@ void studentConsoleView::mainloop() {
 
     switch (std::stoi(input)) {
     case Menu::AddStudent:
-      AddStudent();
+        this->AddStudent();
       break;
     case Menu::RemoveStudent:
-      RemoveStudent();
+        this->RemoveStudent();
       break;
-    case Menu::PrintEveryone:
-      PrintAll();
+    case Menu::PrintAllMeanAsc:
+        this->PrintAllMeanAscending();
       break;
+    case Menu::PrintAllMeanDesc:
+        this->PrintAllMeanDescending();
+        break;
     }
   }
 }
