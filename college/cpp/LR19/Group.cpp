@@ -19,3 +19,12 @@ std::vector<Student> Group::getStudentsMeanAsc()
     });
     return result;
 }
+
+std::vector<Student> Group::getStudentsMeanDesc()
+{
+    auto result = this->students;
+    std::sort(result.begin(), result.end(), [](Student x, Student y){
+        return x.getMean() < y.getMean();
+    });
+    return result;
+}
