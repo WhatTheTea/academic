@@ -1,4 +1,5 @@
 #include "MainView.h"
+#include "Null.h"
 
 #include <iostream>
 #include <string>
@@ -9,8 +10,10 @@ void studentConsoleView::AddStudent() {
   auto new_student = null<Student>;
   cout << "Введіть ПІБ: ";
   cin >> new_student.last_name >> new_student.name >> new_student.patronymic;
-  cout << "Введіть оцінку за перший, потім за другий семестр: ";
-  cin >> new_student.firstMean >> new_student.secondMean;
+  cout << "Введіть оцінки з трьох предметів";
+  for (auto &grade : new_student.grades) {
+      cin >> grade;
+  }
   group.Add(new_student);
   cout << "Студента додано!\n";
 }
@@ -30,18 +33,9 @@ void studentConsoleView::PrintAll() {
   }
 }
 
-void studentConsoleView::SearchSameSecondMean() {
-  cout << "Студенти з однаковою оцінкою за 2 семестр:\n";
-  auto studs = group.SearchSameSecondMean();
-  for (auto stud : studs) {
-    cout << stud.toString() << '\n';
-  }
-}
-
 void studentConsoleView::mainloop() {
   string input;
   int choice;
-  studentConsoleView view;
   while (true) {
     cout << "Меню:\n\t1.Однакові середні бали \n\t2. Всі"
          << "\n\t3. Додати\n\t4. Видалити\n";
@@ -51,16 +45,13 @@ void studentConsoleView::mainloop() {
 
     switch (std::stoi(input)) {
     case Menu::AddStudent:
-      view.AddStudent();
+      AddStudent();
       break;
     case Menu::RemoveStudent:
-      view.RemoveStudent();
+      RemoveStudent();
       break;
     case Menu::PrintEveryone:
-      view.PrintAll();
-      break;
-    case Menu::SameMean:
-      view.SearchSameSecondMean();
+      PrintAll();
       break;
     }
   }
