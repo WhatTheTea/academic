@@ -11,10 +11,13 @@ public:
     Library();
 
     std::vector<Book>::const_iterator begin() const { return books.cbegin(); }
-    std::vector<Book>::const_iterator end() { return books.cend(); }
+    std::vector<Book>::const_iterator end() const { return books.cend(); }
 
-    std::vector<Book&> FindIdsInRangeAndCountLessThan(Range range, int maxCount);
-    std::vector<Book&> FindTitle(const std::string &title);
+    const Book* FindIdsInRangeAndCountLessThan(const Range &range, int maxCount);
+    const Book* FindTitle(const std::string &title);
+
+    void Add(const Book &b);
+    void Remove(int index);
 
 protected:
     std::vector<Book> books;

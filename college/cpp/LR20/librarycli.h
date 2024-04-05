@@ -5,6 +5,8 @@ class LibraryCLI
 {
 public:
     LibraryCLI();
+
+    void mainloop();
 };
 
 #endif // LIBRARYCLI_H
