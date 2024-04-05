@@ -7,19 +7,19 @@
 class Book
 {
 public:
-    Book(const std::string &title, const std::string &id, const int &count);
+    Book(const std::string &title, const int &id, const int &count);
 
     std::string getTitle() const;
-    std::string getId() const;
+    int getId() const;
     int getCount() const;
-
 protected:
-    std::string title;
-    std::string id;
-    int count;
     void setTitle(const std::string &newTitle);
-    void setId(const std::string &newId);
-    void setCount(int newCount);
+    void setId(const int &newId);
+    void setCount(const int &newCount);
+private:
+    std::string title;
+    int id;
+    int count;
 };
 
 #endif // BOOK_H
