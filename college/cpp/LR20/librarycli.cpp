@@ -4,81 +4,83 @@
 
 LibraryCLI::LibraryCLI() {}
 
+void LibraryCLI::PrintBook(const Book &book)
+{
+    std::cout << "Книга: " << book.getTitle()
+              << "\n\tКількість примірників: " << book.getCount()
+              << "\n\tІдентифікаційний номер: " << book.getId()
+              << "\n";
+}
 
-void ById()
+void LibraryCLI::ByIdAndCount()
 {
     std::cout << "Введіть діапазон ідентифікаційних номерів: \nВід До: ";
-    Range range;
-    std::cin >> range.start >> range.end;
-    auto book = bookstore.SearchByIdRange(range);
-    std::cout << book.toString() << '\n';
+    int start = 0, end = 0;
+    std::cin >> start >> end;
+    std::cout << "Введіть максимальну кількість примірників: \nДо: ";
+    int max_count = 0;
+    std::cin >> max_count;
+    auto book = this->library.FindIdsInRangeAndCountLessThan(Range(start, end), max_count);
+    this->PrintBook(*book);
 }
 
-void ByCopies()
-{
-    std::cout << "Введіть діапазон кількості примірників: \nВід До: ";
-    Range range;
-    std::cin >> range.start >> range.end;
-    auto book = bookstore.SearchByCopiesRange(range);
-    std::cout << book.toString() << '\n';
-}
-
-void ByName()
+void LibraryCLI::ByName()
 {
     std::cout << "Введіть ім'я книги:";
-    string name;
-    std::cin >> name;
-    auto book = bookstore.SearchByName(name);
-    std::cout << book.toString() << '\n';
+    std::string title;
+    std::cin >> title;
+    auto book = this->library.FindTitle(title);
+    this->PrintBook(*book);
 }
 
-void AddBook()
+void LibraryCLI::AddBook()
 {
-    auto new_book = null<Book>;
+    std::string title;
+    int id = 0, count = 0;
     std::cout << "Введіть назву книги: ";
-    std::cin >> new_book.title;
+    std::cin >> title;
     std::cout << "Введіть номер книги: ";
-    std::cin >> new_book.id;
+    std::cin >> id;
     std::cout << "Введіть кількість примірників : ";
-    std::cin >> new_book.copies;
-    bookstore.Add(new_book);
+    std::cin >> count;
+    this->library.Add(Book(title,id,count));
     std::cout << "Книгу додано!\n";
 }
 
-void RemoveBook()
+void LibraryCLI::RemoveBook()
 {
-    std::cout << "Введіть номер книги:";
+    std::cout << "Введіть номер книги за порядком: ";
     int id = 0;
     std::cin >> id;
-    bookstore.Remove(id);
+    this->library.Remove(id);
     std::cout << "Книгу видалено!\n";
 }
 
-void mainloop()
+void LibraryCLI::mainloop()
 {
-    string input;
     int choice;
-    while (true) {
-        std::cout << "Меню:\n\t1. Шукати за номером \n\t2. Шукати за кількістю примірників"
-             << "\n\t3. Пошук за іменем\n\t4. Додати книжку\n\t5. Видалити книжку\n";
-        std::cin >> input;
-        if (input == "/exit") break;
-
-        switch (std::stoi(input)) {
-        case Menu::ByIdRange:
-            ById();
+    bool running = true;
+    while (running) {
+        std::cout << "Меню:\n\t1. Шукати за номером та кількістю"
+             << "\n\t2. Пошук за іменем\n\t3. Додати книжку\n\t4. Видалити книжку"
+                  << "\n\t5. Вихід\n> ";
+        std::cin >> choice;
+        switch (choice) {
+        case byIdAndCount:
+            this->ByIdAndCount();
             break;
-        case Menu::ByCopiesRange:
-            ByCopies();
+        case byName:
+            this->ByName();
             break;
-        case Menu::ByName:
-            ByName();
+        case addBook:
+            this->AddBook();
             break;
-        case Menu::AddBook:
-            AddBook();
+        case removeBook:
+            this->RemoveBook();
             break;
-        case Menu::RemoveBook:
-            RemoveBook();
+        default:
+        case exit:
+            running = false;
             break;
         }
     }

@@ -1,6 +1,9 @@
 #include "range.h"
 
-Range::Range(int start, int end) {}
+Range::Range(int start, int end) {
+    this->start = start;
+    this->end = end;
+}
 
 int Range::getStart() const
 {
@@ -10,4 +13,9 @@ int Range::getStart() const
 int Range::getEnd() const
 {
     return end;
+}
+
+bool Range::IsInRange(int n) const
+{
+    return n >= start && n <= end;
 }
