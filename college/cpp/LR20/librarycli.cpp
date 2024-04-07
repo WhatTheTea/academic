@@ -20,7 +20,8 @@ void LibraryCLI::ByIdAndCount()
     std::cout << "Введіть максимальну кількість примірників: \nДо: ";
     int max_count = 0;
     std::cin >> max_count;
-    auto book = this->library.FindIdsInRangeAndCountLessThan(Range(start, end), max_count);
+    auto book = this->library
+                    .FindIdsInRangeAndCountLessThan(Range(start, end), max_count);
     this->PrintBook(*book);
 }
 
