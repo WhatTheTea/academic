@@ -1,14 +1,28 @@
+#include <cmath>
 #include <iostream>
+
+class Radius{
+public:
+    double value = 0;
+    double CircleArea(){
+        return pi * this->squared();
+    }
+    double SphereArea(){
+        return 4 * pi * this->squared();
+    }
+private:
+    double pi = 3.14159;
+    double squared(){
+        return std::pow(this->value, 2);
+    }
+};
 
 int main()
 {
-    double R = 0, S_circle = 0, S_sphere = 0;
-    double pi = 3.14159;
     std::cout << "Радіус: ";
-    std::cin >> R;
-    S_circle = pi * R * R;
-    S_sphere = 4 * pi * R * R;
-    printf("Площа круга: %.2f\nПлоща сфери: %.2f\n", S_circle, S_sphere);
+    Radius R;
+    std::cin >> R.value;
+    printf("Площа круга: %.2f\nПлоща сфери: %.2f\n", R.CircleArea(), R.SphereArea());
 
     system("pause");
     return 0;
